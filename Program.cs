@@ -12,54 +12,12 @@ namespace StudentSelector
             List<string> Students1 = System.IO.File.ReadAllLines("studentList.txt").ToList();
 
 
-            //     List<string> Students1 = new List<string>()
-            //    {
-            //        "Chad Clark",
-            //         "Micaela Colpi",
-            //         "Sidney Crandall",
-            //         "Salma Crank",
-            //         "Carter Culkin",
-            //         "David Darden",
-            //         "Logan Demmy",
-            //         "Chris Douglass",
-            //         "Alex Dudley",
-            //         "Autumn Fotopoulos",
-            //         "Joel Gage",
-            //         "Bryson Goins",
-            //         "B.J. Golden",
-            //        "Jackson Goodman",
-            //         "Brandon Hill",
-            //         "Traye Johnson",
-            //         "Cody Jones",
-            //         "Bre Coach",
-            //         "Taryn Lytle",
-            //         "Ethan Mathis",
-            //         "Colten Mayberry",
-            //         "Meg McGregor",
-            //         "Laurel Morrison",
-            //         "Nick Patton",
-            //         "Hunter Preast",
-            //         "Jeremiah Schugt",
-            //         "Preston Shotts",
-            //         "Brandon Vinson",
-            //         "Dakota Upchurch"
-            //     };
-
-
+            CallOnStudents();
             Again();
 
-            CallOnStudents();
             void CallOnStudents()
             {
                 List<string> notCalledOn = new List<string>(Students1);
-
-                Console.WriteLine("You Have NOT Called On: ");
-                Console.WriteLine("------------------------------------------------------------");
-                // var notCalledOnString = String.Join(" ,", notCalledOn);
-                Console.WriteLine(String.Join(", ", notCalledOn));
-
-                Console.WriteLine("Press any key to continue");
-                Console.ReadLine();
 
                 //create a list of students who have been called on
                 List<string> alreadyCalledOn = new List<string>();

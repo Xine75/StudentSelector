@@ -53,6 +53,7 @@ namespace StudentSelector
                 List<string> notCalledOn = new List<string>(Students1);
 
                 Console.WriteLine("You Have NOT Called On: ");
+                Console.WriteLine("------------------------------------------------------------");
                 // var notCalledOnString = String.Join(" ,", notCalledOn);
                 Console.WriteLine(String.Join(", ", notCalledOn));
 
@@ -77,21 +78,25 @@ namespace StudentSelector
                         var alreadyCalledOnString = String.Join(", ", alreadyCalledOn);
 
 
-                        Console.Write("UP NEXT: ");
-                        Console.WriteLine(candidateString);
-                        Console.WriteLine();
+
 
                         Console.WriteLine("You Have NOT Called On: ");
+                        Console.WriteLine("------------------------------------------------------------");
                         Console.WriteLine(notCalledOnString);
                         Console.WriteLine();
 
                         Console.WriteLine("You've Already Called On: ");
+                        Console.WriteLine("------------------------------------------------------------");
                         Console.WriteLine(alreadyCalledOnString);
                         Console.WriteLine();
-                        Console.WriteLine("------------------------------------------------------------");
 
-                        Console.WriteLine("Press any key to continue");
-                        Console.WriteLine("------------------------------------------------------------");
+                        Console.Write("UP NEXT: ");
+                        Console.WriteLine(candidateString);
+                        Console.WriteLine();
+
+
+                        Console.WriteLine("************Press any key to continue**************");
+
 
                         Console.ReadLine();
                     }

@@ -41,46 +41,92 @@ namespace StudentSelector
                 "Dakota Upchurch"
             };
 
-            //create a list of students who have been called on
-            List<string> AlreadyCalledOn = new List<string>();
-            //creates a list of index values
-            var random = new Random();
-            List<int> Indexes = new List<int>();
 
-            //creates a randomizer for candidates
-            var candidate = random.Next(0, Students1.Count);
 
-            //selects a random candidate index
-            while (Indexes.Count < 1)
+            CallOnStudents();
+
+            Again();
+
+            void CallOnStudents()
             {
 
-                if (!Indexes.Contains(candidate))
+                List<string> notCalledOn = new List<string>(Students1);
+
+                Console.WriteLine("You Have NOT Called On: ");
+                Console.WriteLine("------------------------------------------------------------");
+                // var notCalledOnString = String.Join(" ,", notCalledOn);
+                Console.WriteLine(String.Join(", ", notCalledOn));
+
+                Console.WriteLine("Press any key to continue");
+                Console.ReadLine();
+
+                //create a list of students who have been called on
+                List<string> alreadyCalledOn = new List<string>();
+                while (alreadyCalledOn.Count < Students1.Count)
                 {
-                    Indexes.Add(candidate);
+                    var random = new Random();
+                    var candidate = random.Next(0, Students1.Count);
 
-                    string calledOn = Students1[candidate];
+                    if (notCalledOn.Contains(Students1[candidate]))
+                    {
+                        alreadyCalledOn.Add(Students1[candidate]);
+                        notCalledOn.Remove(Students1[candidate]);
 
-                    Students1.Remove(calledOn);
-                    AlreadyCalledOn.Add(calledOn);
+
+                        var candidateString = String.Join(", ", Students1[candidate]);
+                        var notCalledOnString = String.Join(", ", notCalledOn);
+                        var alreadyCalledOnString = String.Join(", ", alreadyCalledOn);
+
+
+
+
+                        Console.WriteLine("You Have NOT Called On: ");
+                        Console.WriteLine("------------------------------------------------------------");
+                        Console.WriteLine(notCalledOnString);
+                        Console.WriteLine();
+
+                        Console.WriteLine("You've Already Called On: ");
+                        Console.WriteLine("------------------------------------------------------------");
+                        Console.WriteLine(alreadyCalledOnString);
+                        Console.WriteLine();
+
+                        Console.Write("UP NEXT: ");
+                        Console.WriteLine(candidateString);
+                        Console.WriteLine();
+
+
+                        Console.WriteLine("************Press any key to continue**************");
+
+
+                        Console.ReadLine();
+                    }
+                }
+            }
+
+            void Again()
+            {
+                Console.WriteLine("You've called on all the students. Start over? Y/N?");
+
+                string answer = Console.ReadLine().ToLower();
+
+                while (answer != "y" && answer != "n")
+                {
+                    Console.Write("Please select Y or N.");
+                    answer = Console.ReadLine().ToLower();
                 }
 
+                if (answer == "y")
+                {
+                    CallOnStudents();
+                }
+
+                else
+                {
+                    Console.WriteLine("Thank you and good-bye!");
+                    return;
+                }
             }
-            //selects a candidate at random
-            for (int i = 0; i < Indexes.Count; i++)
-            {
-                int index = Indexes[i];
-                Console.WriteLine(Students1[index]);
-            }
-
-            var candidateString = String.Join(", ", Students1);
-            var alreadyCalledOnString = String.Join(", ", AlreadyCalledOn);
-
-            Console.WriteLine("Not called on:");
-            Console.WriteLine(candidateString);
-            Console.WriteLine("Already called on:");
-            Console.WriteLine(alreadyCalledOnString);
-
-
         }
     }
 }
+

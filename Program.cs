@@ -77,7 +77,7 @@ namespace StudentSelector
                         var alreadyCalledOnString = String.Join(", ", alreadyCalledOn);
 
 
-                        Console.Write("Up Next: ");
+                        Console.Write("UP NEXT: ");
                         Console.WriteLine(candidateString);
                         Console.WriteLine();
 
@@ -88,8 +88,11 @@ namespace StudentSelector
                         Console.WriteLine("You've Already Called On: ");
                         Console.WriteLine(alreadyCalledOnString);
                         Console.WriteLine();
+                        Console.WriteLine("------------------------------------------------------------");
 
                         Console.WriteLine("Press any key to continue");
+                        Console.WriteLine("------------------------------------------------------------");
+
                         Console.ReadLine();
                     }
                 }

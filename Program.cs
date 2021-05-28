@@ -40,6 +40,9 @@ namespace StudentSelector
                 "Brandon Vinson",
                 "Dakota Upchurch"
             };
+
+            //create a list of students who have been called on
+            List<string> AlreadyCalledOn = new List<string>();
             //creates a list of index values
             var random = new Random();
             List<int> Indexes = new List<int>();
@@ -47,18 +50,18 @@ namespace StudentSelector
             //creates a randomizer for candidates
             var candidate = random.Next(0, Students1.Count);
 
-            //create a list of students who have been called on
-            List<int> AlreadyCalledOn = new List<int>();
-
-            //
+            //selects a random candidate index
             while (Indexes.Count < 1)
             {
 
                 if (!Indexes.Contains(candidate))
                 {
                     Indexes.Add(candidate);
-                    //do insert instead of add?
-                    AlreadyCalledOn.Add(candidate);
+
+                    string calledOn = Students1[candidate];
+
+                    Students1.Remove(calledOn);
+                    AlreadyCalledOn.Add(calledOn);
                 }
 
             }
@@ -69,11 +72,13 @@ namespace StudentSelector
                 Console.WriteLine(Students1[index]);
             }
 
-            var candidateString = String.Join(", ", Indexes);
-            var AlreadyCalledOnString = String.Join(" ,", AlreadyCalledOn);
+            var candidateString = String.Join(", ", Students1);
+            var alreadyCalledOnString = String.Join(", ", AlreadyCalledOn);
 
+            Console.WriteLine("Not called on:");
             Console.WriteLine(candidateString);
-            Console.WriteLine(AlreadyCalledOnString);
+            Console.WriteLine("Already called on:");
+            Console.WriteLine(alreadyCalledOnString);
 
 
         }

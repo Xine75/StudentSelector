@@ -13,14 +13,13 @@ namespace StudentSelector
 
 
             CallOnStudents();
-            Again();
+            // Again();
 
             void CallOnStudents()
             {
                 List<string> notCalledOn = new List<string>(Students1);
-
-                //create a list of students who have been called on
                 List<string> alreadyCalledOn = new List<string>();
+
                 while (alreadyCalledOn.Count < Students1.Count)
                 {
                     var random = new Random();
@@ -55,30 +54,29 @@ namespace StudentSelector
                         Console.ReadLine();
                         Console.Clear();
                     }
-                }
-            }
 
-            void Again()
-            {
-                Console.WriteLine("You've called on all the students. Start over? Y/N?");
+                    else if (notCalledOn.Count == 0)
+                    {
+                        Console.WriteLine("You've called on all the students. Start over? Y/N?");
 
-                string answer = Console.ReadLine().ToLower();
+                        string answer = Console.ReadLine().ToLower();
+                        while (answer != "y" && answer != "n")
+                        {
+                            Console.Write("Please select Y or N.");
+                            answer = Console.ReadLine().ToLower();
+                        }
 
-                while (answer != "y" && answer != "n")
-                {
-                    Console.Write("Please select Y or N.");
-                    answer = Console.ReadLine().ToLower();
-                }
+                        if (answer == "y")
+                        {
+                            CallOnStudents();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thank you and good-bye!");
+                            return;
+                        }
 
-                if (answer == "y")
-                {
-                    CallOnStudents();
-                    Again();
-                }
-                else
-                {
-                    Console.WriteLine("Thank you and good-bye!");
-                    return;
+                    }
                 }
             }
         }

@@ -73,6 +73,7 @@ namespace StudentSelector
                 if (answer == "y")
                 {
                     CallOnStudents();
+                    Again();
                 }
                 else
                 {

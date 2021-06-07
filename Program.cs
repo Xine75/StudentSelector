@@ -53,30 +53,32 @@ namespace StudentSelector
 
                         Console.ReadLine();
                         Console.Clear();
+
+                        if (alreadyCalledOn.Count == Students1.Count)
+                        {
+                            Console.WriteLine("You've called on all the students. Start over? Y/N?");
+
+                            string answer = Console.ReadLine().ToLower();
+                            while (answer != "y" && answer != "n")
+                            {
+                                Console.Write("Please select Y or N.");
+                                answer = Console.ReadLine().ToLower();
+                            }
+
+                            if (answer == "y")
+                            {
+                                CallOnStudents();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Thank you and good-bye!");
+                                return;
+                            }
+
+                        }
                     }
 
-                    else if (notCalledOn.Count == 0)
-                    {
-                        Console.WriteLine("You've called on all the students. Start over? Y/N?");
 
-                        string answer = Console.ReadLine().ToLower();
-                        while (answer != "y" && answer != "n")
-                        {
-                            Console.Write("Please select Y or N.");
-                            answer = Console.ReadLine().ToLower();
-                        }
-
-                        if (answer == "y")
-                        {
-                            CallOnStudents();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Thank you and good-bye!");
-                            return;
-                        }
-
-                    }
                 }
             }
         }
